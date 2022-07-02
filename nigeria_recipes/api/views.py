@@ -20,7 +20,7 @@ from .serializer import (
 from .models import (
     Meal, 
     Category, 
-    Ingredient, 
+    Ingredients, 
     Preparation)
 
 class ListMealView(ListAPIView):
@@ -37,7 +37,7 @@ class MealDetailView(RetrieveAPIView):
 
 class MealIngredientsView(ListMealView):
     serializer_class = IngredientSerializer
-    queryset = Ingredient.objects.all()
+    queryset = Ingredients.objects.all()
 
 class RemoveMealView(DestroyAPIView):
     serializer_class = MealsSerializer
