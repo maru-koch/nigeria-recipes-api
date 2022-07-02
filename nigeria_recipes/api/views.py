@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from rest_framework.views import APIView
+
+#: Generic views
 from rest_framework.generics import (
     ListAPIView, 
     RetrieveAPIView, 
@@ -7,22 +9,43 @@ from rest_framework.generics import (
     DestroyAPIView, 
     UpdateAPIView)
 
+#: Serializers
+from .serializer import (
+    MealsSerializer, 
+    IngredientSerializer, 
+    CategorySerializer, 
+    PreparationSerializer)
+
+#: Models
+from .models import (
+    Meal, 
+    Category, 
+    Ingredient, 
+    Preparation)
+
 class ListMealView(ListAPIView):
-    pass
+    serializer_class = MealsSerializer
+    queryset = Meal.objects.all()
 
 class  AddMealView(CreateAPIView):
-    pass
+    serializer_class = MealsSerializer
+    queryset = Meal.objects.all()
 
 class MealDetailView(RetrieveAPIView):
-    pass
+    serializer_class = MealsSerializer
+    queryset = Meal.objects.all()
 
 class MealIngredientsView(ListMealView):
-    pass
+    serializer_class = IngredientSerializer
+    queryset = Ingredient.objects.all()
 
 class RemoveMealView(DestroyAPIView):
-    pass
+    serializer_class = MealsSerializer
+    queryset = Meal.objects.all()
+
 class UpdateMealView(UpdateAPIView):
-    pass
+    serializer_class = MealsSerializer
+    queryset = Meal.objects.all()
 
 class RateMealView(APIView):
     pass

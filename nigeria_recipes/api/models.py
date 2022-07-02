@@ -3,7 +3,7 @@ from django.db import models
 from django.forms import UUIDField
 
 # Create your models here.
-class Ingredients(models.Model):
+class Ingredient(models.Model):
     name=models.CharField(max_length=100)
     quantity=models.IntegerField()
     def __str__(self):
@@ -26,7 +26,7 @@ class Meal(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     description = models.TextField(max_length=500)
     ingredients = models.ManyToManyField(Ingredients, null=True, blank=True, related_name="meals")
-    preparation = models.TextField(Preparation, max_lengt=500)
+    preparation = models.TextField(Preparation, max_length=500)
 
     def __str__(self):
         return self.title
