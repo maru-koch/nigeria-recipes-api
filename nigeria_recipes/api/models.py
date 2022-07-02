@@ -23,7 +23,7 @@ class Meal(models.Model):
     id = models.UUIDField(primary_key=True)
     image = models.ImageField(upload_to="images")
     title = models.CharField(max_length=100)
-    category = models.ForeignKey(Category)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
     description = models.TextField(max_lengt=500)
     ingredients = models.ManyToManyField(Ingredients, null=True, blank=True, related_name="meals")
     preparation = models.TextField(Preparation, max_lengt=500)
