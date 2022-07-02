@@ -1,4 +1,11 @@
 from django.urls import path
+from .views import (ListMealView, 
+MealDetailView, 
+MealIngredientsView, 
+RemoveMealView, 
+UpdateMealView, 
+RateMealView, 
+ShareMealView)
 
 urlpatterns =[
     path('meals', ListMealView.as_view()),
