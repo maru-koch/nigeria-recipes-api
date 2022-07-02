@@ -25,7 +25,7 @@ class Meal(models.Model):
     title = models.CharField(max_length=100)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     description = models.TextField(max_length=500)
-    ingredients = models.ManyToManyField(Ingredients, null=True, blank=True, related_name="meals")
+    ingredients = models.ManyToManyField(Ingredient, related_name="meals")
     preparation = models.TextField(Preparation, max_length=500)
 
     def __str__(self):
