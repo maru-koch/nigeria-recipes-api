@@ -11,41 +11,41 @@ from rest_framework.generics import (
 
 #: Serializers
 from .serializer import (
-    MealsSerializer, 
+    FoodSerializer, 
     IngredientSerializer, 
     CategorySerializer, 
     PreparationSerializer)
 
 #: Models
 from .models import (
-    Meal, 
+    Food, 
     Category, 
     Ingredients, 
     Preparation)
 
 class ListMealView(ListAPIView):
-    serializer_class = MealsSerializer
-    queryset = Meal.objects.all()
+    serializer_class = FoodSerializer
+    queryset = Food.objects.all()
 
 class  AddMealView(CreateAPIView):
-    serializer_class = MealsSerializer
-    queryset = Meal.objects.all()
+    serializer_class = FoodSerializer
+    queryset = Food.objects.all()
 
 class MealDetailView(RetrieveAPIView):
-    serializer_class = MealsSerializer
-    queryset = Meal.objects.all()
+    serializer_class = FoodSerializer
+    queryset = Food.objects.all()
 
 class MealIngredientsView(ListMealView):
     serializer_class = IngredientSerializer
     queryset = Ingredients.objects.all()
 
 class RemoveMealView(DestroyAPIView):
-    serializer_class = MealsSerializer
-    queryset = Meal.objects.all()
+    serializer_class = FoodSerializer
+    queryset = Food.objects.all()
 
 class UpdateMealView(UpdateAPIView):
-    serializer_class = MealsSerializer
-    queryset = Meal.objects.all()
+    serializer_class = FoodSerializer
+    queryset = Food.objects.all()
 
 class RateMealView(APIView):
     pass

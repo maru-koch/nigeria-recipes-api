@@ -1,10 +1,10 @@
 from dataclasses import fields
 from rest_framework import serializers
-from .models import Meal, Ingredients, Category, Preparation
+from .models import Food, Ingredients, Category, Preparation
 
-class MealsSerializer(serializers.ModelSerializer):
+class FoodSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Meal
+        model = Food
         fields = "__all__"
 
 class IngredientSerializer(serializers.ModelSerializer):
